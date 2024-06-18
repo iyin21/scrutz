@@ -1,12 +1,20 @@
-import { Layout, Button, Input } from "@components/index"
+import { Layout, Button, Input, Pagination } from "@components/index"
 import { BiSearch } from "react-icons/bi"
 import CampaignTable from "./components/campaignTable"
 import { useGetCampaigns } from "@hooks/campaign.hook"
 import { CgSpinner } from "react-icons/cg"
 import Logo from "@assets/icons/logo.svg"
+import { useState, useMemo } from "react"
 
+let pageSize = 7
 const Campaign = () => {
     const { data, isLoading } = useGetCampaigns()
+    const [currentPage, setCurrentPage] = useState(1)
+    const paginatedData = useMemo(() => {
+        const firstPageIndex = (currentPage - 1) * pageSize
+        const lastPageIndex = firstPageIndex + pageSize
+        return data?.slice(firstPageIndex, lastPageIndex)
+    }, [currentPage, data])
     return (
         <Layout>
             {isLoading ? (
@@ -43,7 +51,20 @@ const Campaign = () => {
                         />
                     </div>
                     <div></div>
-                    <CampaignTable data={data || []} />
+                    <CampaignTable data={paginatedData || []} />
+                    <Pagination
+                            page={currentPage}
+                            total={Math.ceil(
+                                (data?.length || 0) / pageSize
+                            )}
+                            onChange={(pageNumber) =>
+                                setCurrentPage(pageNumber)
+                            }
+                            recordPerpage={pageSize}
+                            boundaries={1}
+                            totalRecords={data?.length || 0}
+                            count={paginatedData?.length || 0}
+                        />
                 </div>
             )}
         </Layout>
