@@ -13,7 +13,7 @@ const Sidebar = () => {
             <img src={Logo} alt="Scrutz" className="w-fit" />
             <Button
                 variant="primary"
-                className="mt-10 w-full"
+                className="mt-10 w-full outline-none"
                 onClick={() => navigate("/campaign/new")}
             >
                 <FaPlus color="white" className="mr-4" size="20px" />

@@ -3,6 +3,8 @@ import Overview from "@pages/Overview"
 import Campaign from "@pages/Campaign"
 import CreateCampaign from "@pages/CreateCampaign"
 import CampaignInformation from "@pages/CampaignInformation"
+import MarketIntelligence from "@pages/MarketIntelligence"
+import AccountSettings from "@pages/AccountSettings"
 
 function App() {
     return (
@@ -12,6 +14,8 @@ function App() {
             <Route path="/campaign" element={<Campaign />} />
             <Route path="/campaign/new" element={<CreateCampaign />} />
             <Route path="/campaign/:id" element={<CampaignInformation />} />
+            <Route path="/market_intelligence" element={<MarketIntelligence />} />
+            <Route path="/account_settings" element={<AccountSettings />} />
         </Routes>
     )
 }

@@ -40,7 +40,7 @@ const CreateCampaign = () => {
                 onSubmit={(values) => mutate(values)}
             >
                 {() => (
-                    <Form className="py-4 mt-3 font-nunito">
+                    <Form className="py-4 mt-3 font-nunito md:mr-20">
                         <div className="mb-6">
                             <FormControls
                                 label={

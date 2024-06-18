@@ -21,14 +21,16 @@ const CampaignInformation = () => {
     const { isLoading, data } = useGetSingleCampaign({ id: id || "" })
     const { isPending, mutate } = useUpdateCampaign()
 
-    const [openStopCampaignModal, setOpenStopCampaignModal] = useState(true)
+    const [openStopCampaignModal, setOpenStopCampaignModal] = useState(false)
     const [openCampaignDeletedModal, setOpenCampaignDeletedModal] =
-        useState(true)
+        useState(false)
     return (
         <Layout>
             <CampaignDeletedModal
                 opened={openCampaignDeletedModal}
                 setOpened={setOpenCampaignDeletedModal}
+                campaignName={data?.campaignName||""}
+
             />
             <StopCampaignModal
                 opened={openStopCampaignModal}
@@ -48,7 +50,7 @@ const CampaignInformation = () => {
                     <CgSpinner className="animate-spin text-black-100 text-2lg " />
                 </div>
             ) : (
-                <div>
+                <div className="mr-20"> 
                     <div
                         className="flex cursor-pointer mb-4"
                         onClick={() => navigate(-1)}
@@ -81,7 +83,16 @@ const CampaignInformation = () => {
                             dailyDigest: data?.dailyDigest || "",
                         }}
                         validationSchema={campaignValidationSchema}
-                        onSubmit={(values) => mutate(values)}
+                        onSubmit={(values) =>
+                            mutate({
+                                ...values,
+                                digestCampaign:
+                                    values.digestCampaign === "Yes"
+                                        ? true
+                                        : false,
+                                id: id || "",
+                            })
+                        }
                     >
                         {({ values }) => (
                             <Form className="py-4 mt-3 font-nunito">
@@ -153,10 +164,19 @@ const CampaignInformation = () => {
 
                                 <div className="mb-6">
                                     <FormControls
-                                        labelName="Want to receive daily digest about the campaign?"
-                                        control="switch"
+                                        label="Kindly select how often you want to receive daily digest"
+                                        control="select"
                                         name="digestCampaign"
-                                    />
+                                        placeholder="e.g The Future is now"
+                                        classNames={{
+                                            mainRoot: "px-2 w-full",
+                                            input: "text-black-100 text-[14px]",
+                                        }}
+                                        labelClassName="text-[#666666]"
+                                    >
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </FormControls>
                                 </div>
                                 <div className="mb-6">
                                     <FormControls

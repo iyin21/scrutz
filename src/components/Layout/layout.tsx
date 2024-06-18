@@ -4,6 +4,7 @@ import { useState, ReactNode } from "react"
 import { Drawer } from "@mantine/core"
 import { AiOutlineClose } from "react-icons/ai"
 import Logo from "@assets/icons/logo.svg"
+import { Input } from "@components/index"
 
 interface Props {
     //pageTitle: string
@@ -13,43 +14,46 @@ const Layout = ({ children }: Props) => {
     const [openSideBar, setOpenSideBar] = useState(false)
     return (
         <div className="h-screen relative">
-            <div className="w-full md:w-[calc(100%-288px)]  fixed right-0 z-20 bg-[#FFFFFA] md:pb-0 border-b border-[#F0F4F4]">
+            <div className="w-full lg:w-[calc(100%-288px)]  fixed right-0 z-20 bg-[#FFFFFA]  border-b border-[#F0F4F4]">
                 <TopNav setOpenSideBar={setOpenSideBar} />
             </div>
-            <div className="relative md:pl-72 h-screen ">
-                <div className="hidden md:block fixed left-0 md:w-72 h-screen overflow-y-auto">
+            <div className="relative lg:pl-72 h-screen ">
+                <div className="hidden lg:block fixed left-0 lg:w-72 h-screen overflow-y-auto no-scrollbar">
                     <Sidebar />
                 </div>
                 <>
-                <Drawer
-                    opened={openSideBar}
-                    onClose={() => setOpenSideBar(false)}
-                    size="75%"
-                    styles={{
-                        content: {
-                            background: "#F0F4F4",
-                        },
-                    }}
-                    withCloseButton={false}
-                >
-                    <div className="px-4 mt-7 ">
-                        <div className="flex items-center justify-end mb-6">
-                            <AiOutlineClose
-                                className="cursor-pointer"
-                                onClick={() => setOpenSideBar(false)}
-                                color="white"
-                                size="24px"
+                    <Drawer
+                        opened={openSideBar}
+                        onClose={() => setOpenSideBar(false)}
+                        size="75%"
+                        styles={{
+                            content: {
+                                background: "#F0F4F4",
+                            },
+                        }}
+                        withCloseButton={false}
+                    >
+                        <div className="px-4 mt-7 ">
+                            <div className="flex items-center justify-end mb-6">
+                                <AiOutlineClose
+                                    className="cursor-pointer"
+                                    onClick={() => setOpenSideBar(false)}
+                                    color="black"
+                                    size="24px"
+                                />
+                            </div>
+                            <Input
+                                placeholder="Search for anything..."
+                                className=" hidden sm:block sm:w-[200px] xl:w-[300px] p-4  text-[12px] text-grey-100 "
                             />
+                            <hr className="text-gray-100 mt-5" />
                         </div>
-                        <img src={Logo} alt="Scrutz" className="w-fit" />
-                        <hr className="text-neutral-5 mt-5" />
-                    </div>
-                    <div className="w-full h-3/4 md:h-[500px] overflow-y-auto md:pt-[75px]">
-                        <Sidebar />
-                    </div>
-                </Drawer>
+                        <div className="w-full h-3/4 md:h-[500px] overflow-y-auto md:pt-[75px]">
+                            <Sidebar />
+                        </div>
+                    </Drawer>
                 </>
-                <main className="bg-[#FFFFFA] w-full h-full overflow-y-auto md:pt-36  lg:px-20 py-6">
+                <main className="bg-[#FFFFFA] w-full h-full overflow-y-auto pt-36 px-4  lg:px-20 py-6">
                     {children}
                 </main>
             </div>

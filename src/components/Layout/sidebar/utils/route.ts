@@ -3,7 +3,6 @@ import MarketIcon from "../assets/market"
 import OverviewIcon from "../assets/overview" 
 import SettingsIcon from "../assets/settings"
 
-//import useAuth from "@hooks/auth/useAuth"
 
 export const routes = [
     { name: "Overview", Icon: OverviewIcon, link: "/overview" },

@@ -20,19 +20,19 @@ const Campaign = () => {
                     <CgSpinner className="animate-spin text-black-100 text-2lg ml-2 " />
                 </div>
             ) : (
-                <div className="mr-10">
+                <div className="md:mr-10">
                     <p className="font-semibold md:text-2lg text-lg mb-6 text-primary-100 font-workSans">
                         All Campaigns
                     </p>
-                    <div className="flex justify-between mb-6">
+                    <div className="sm:flex justify-between mb-6">
                         <div className="flex gap-4">
-                            <Button variant="border">All ()</Button>
-                            <Button variant="border">Inactive ()</Button>
-                            <Button variant="border">Active ()</Button>
+                            <Button variant="border">All ({data?.length||0})</Button>
+                            <Button variant="border">Inactive ({data?.filter((item)=>item.campaignStatus==="Inactive").length||0})</Button>
+                            <Button variant="border">Active ({data?.filter((item)=>item.campaignStatus==="Active").length||0})</Button>
                         </div>
                         <Input
                             placeholder="Search..."
-                            className="  w-[200px] xl:w-[300px] p-4 h-[50px] text-[12px] text-grey-100 "
+                            className="  w-[200px] xl:w-[300px] p-4  text-[12px] text-grey-100 mt-6 sm:mt-0"
                             suffixIcon={
                                 <BiSearch
                                     size="22px"

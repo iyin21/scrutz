@@ -11,14 +11,14 @@ const Overview = () => {
     return (
         <Layout>
             <div className="">
-                <div className="flex justify-between">
+                <div className="sm:flex justify-between">
                     <div>
                         <p className="font-generalSans font-bold md:text-xl text-2lg text-primary-100">
                             Overview
                         </p>
                     </div>
 
-                    <div className="place-content-end flex gap-4">
+                    <div className="place-content-end flex  sm:mt-0 mt-6 gap-4">
                         <div className="border border-gray-100 rounded p-2 flex items-center text-2sm">
                             <img src={CalendarIcon} alt="" />
                             <h6 className="px-2 border-r border-[#ECECEC] border-gray-100 mr-2 text-[#333333]">

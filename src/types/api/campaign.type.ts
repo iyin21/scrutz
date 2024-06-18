@@ -15,8 +15,8 @@ export interface CampaignResponse {
 export interface CampaignRequest{
     campaignName: string
     campaignDescription: string
-    startDate: string
-    endDate: string
+    startDate: string|Date
+    endDate: string|Date
     digestCampaign: boolean
     linkedKeywords: string[]
     dailyDigest: string
