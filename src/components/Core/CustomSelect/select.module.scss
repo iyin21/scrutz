@@ -1,0 +1,16 @@
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("/icons/dropdown.svg");
+    background-repeat: no-repeat;
+    background-position-x: 92%;
+    background-position-y: 20px;
+}
+
+@media (min-width: 768px) {
+    .select {
+        background-position-x: 95%;
+        background-position-y: 25px;
+    }
+}
