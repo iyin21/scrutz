@@ -21,12 +21,12 @@ export const fetchSingleCampaign= async(id:string)=>{
 
 export const updateCampaign= async({id, ...data}: CampaignRequest &{id:string})=>{
     const response= await axiosInstance.put<CampaignResponse>(
-        ENDPOINT+`/${id}`, data
+        ENDPOINT+`/${id}`, {...data, id}
     );
     return response.data
 }
 
-export const deleteCampaign= async({id}:{id:string})=>{
+export const deleteCampaign= async({id}:{id:number})=>{
     const response  =axiosInstance.delete(ENDPOINT+`/${id}`);
     return response
 }

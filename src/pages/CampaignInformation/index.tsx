@@ -12,30 +12,34 @@ import { useParams, useNavigate } from "react-router-dom"
 import { CgSpinner } from "react-icons/cg"
 import Logo from "@assets/icons/logo.svg"
 import { campaignValidationSchema } from "@utils/validationSchema"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const CampaignInformation = () => {
     const { id } = useParams<string>()
     const navigate = useNavigate()
-
     const { isLoading, data } = useGetSingleCampaign({ id: id || "" })
-    const { isPending, mutate } = useUpdateCampaign()
+    const { isPending, mutate, isSuccess } = useUpdateCampaign()
 
     const [openStopCampaignModal, setOpenStopCampaignModal] = useState(false)
     const [openCampaignDeletedModal, setOpenCampaignDeletedModal] =
         useState(false)
+
+    useEffect(()=>{
+        if(isSuccess){
+            navigate("/campaign")
+        }
+    },[isSuccess])    
     return (
         <Layout>
             <CampaignDeletedModal
                 opened={openCampaignDeletedModal}
                 setOpened={setOpenCampaignDeletedModal}
-                campaignName={data?.campaignName||""}
-
+                campaignName={data?.campaignName || ""}
             />
             <StopCampaignModal
                 opened={openStopCampaignModal}
                 setOpened={setOpenStopCampaignModal}
-                id={id || ""}
+                id={Number(id) || 0}
                 campaignName={data?.campaignName || ""}
                 setOpenDeletedModal={setOpenCampaignDeletedModal}
             />
@@ -50,7 +54,7 @@ const CampaignInformation = () => {
                     <CgSpinner className="animate-spin text-black-100 text-2lg " />
                 </div>
             ) : (
-                <div className="mr-20"> 
+                <div className="mr-20">
                     <div
                         className="flex cursor-pointer mb-4"
                         onClick={() => navigate(-1)}
@@ -229,7 +233,7 @@ const CampaignInformation = () => {
                                         variant="red"
                                         className="px-12 !text-white-100"
                                         type="button"
-                                        onClick={() => navigate(-1)}
+                                        onClick={() => setOpenStopCampaignModal(true)}
                                     >
                                         Stop Campaign
                                     </Button>

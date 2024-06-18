@@ -9,8 +9,12 @@ import { useNavigate } from "react-router-dom"
 
 interface CampaignTableInterface {
     data: CampaignResponse[]
+    handleOpenDeleteModal: (data: CampaignResponse) => void
 }
-const CampaignTable = ({ data }: CampaignTableInterface) => {
+const CampaignTable = ({
+    data,
+    handleOpenDeleteModal,
+}: CampaignTableInterface) => {
     const navigate = useNavigate()
     const rows = data.map((item, index) => (
         <Table.Tr
@@ -38,7 +42,12 @@ const CampaignTable = ({ data }: CampaignTableInterface) => {
                     className="cursor-pointer"
                     onClick={() => navigate(`/campaign/${item.id}`)}
                 />{" "}
-                <img src={DeleteIcon} alt="" className="cursor-pointer" />
+                <img
+                    src={DeleteIcon}
+                    alt=""
+                    className="cursor-pointer"
+                    onClick={() => handleOpenDeleteModal(item)}
+                />
             </Table.Td>
         </Table.Tr>
     ))

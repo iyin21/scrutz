@@ -45,7 +45,7 @@ const CampaignDeletedModal = ({
                 <Button
                     variant="primary"
                     className="font-syne mt-10 outline-none"
-                    onClick={() => navigate("/campaign")}
+                    onClick={() =>{setOpened(false); navigate("/campaign")}}
                 >
                     Go Back to campaign list
                 </Button>

@@ -1,11 +1,7 @@
 import { Input } from "@components/index"
-import { BiSearch } from "react-icons/bi"
 import Avatar from "@assets/icons/avatar.svg"
 import { FiChevronDown } from "react-icons/fi"
 import { HiMenuAlt2 } from "react-icons/hi"
-
-//import { useState } from "react"
-//import { useMediaQuery } from "@mantine/hooks"
 import NotificationIcon from "@assets/icons/notificationIcon.svg"
 
 const TopNav = ({

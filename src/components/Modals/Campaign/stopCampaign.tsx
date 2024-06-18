@@ -6,7 +6,7 @@ import { useEffect } from "react"
 export interface StopCampaignModalProps {
     opened: boolean
     setOpened: React.Dispatch<React.SetStateAction<boolean>>
-    id: string
+    id: number
     campaignName: string
     setOpenDeletedModal: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -16,15 +16,16 @@ const StopCampaignModal = ({
     setOpened,
     id,
     campaignName,
-    setOpenDeletedModal
+    setOpenDeletedModal,
 }: StopCampaignModalProps) => {
     const { mutate, isPending, isSuccess } = useDeleteCampaign()
 
-    useEffect(()=>{
-        if(isSuccess){
+    useEffect(() => {
+        if (isSuccess) {
+            setOpened(false)
             setOpenDeletedModal(true)
         }
-    },[isSuccess])
+    }, [isSuccess])
     return (
         <Modal
             opened={opened}
@@ -45,18 +46,30 @@ const StopCampaignModal = ({
                 blur: 3,
             }}
         >
-            <p className="text-lg font-semibold my-4 text-center">Stop Campaign</p>
+            <p className="text-lg font-semibold my-4 text-center">
+                Stop Campaign
+            </p>
             <hr className="border-[#F0F4F4]" />
             <p className="text-[#666666] mt-6 text-center my-10 px-4">
-                Are You sure you want to delete {campaignName} campaign? This action cannot
-                be undone.
+                Are You sure you want to delete {campaignName} campaign? This
+                action cannot be undone.
             </p>
             <div className="flex justify-center gap-x-4 mb-6">
-                <Button variant="black" className="font-semibold px-6" onClick={() =>{setOpened(false); setOpenDeletedModal(true)}}>
+                <Button
+                    variant="black"
+                    className="font-semibold px-6"
+                    onClick={() => {
+                        setOpened(false)
+                    }}
+                >
                     Cancel
                 </Button>
-                <Button variant="red" className="!text-white-100" onClick={() => mutate({ id: id })}>
-                    {isPending ? "Deleting" : "Delete Campaign"}
+                <Button
+                    variant="red"
+                    className="!text-white-100"
+                    onClick={() => mutate({ id: id })}
+                >
+                    {isPending ? "Deleting..." : "Delete Campaign"}
                 </Button>
             </div>
         </Modal>

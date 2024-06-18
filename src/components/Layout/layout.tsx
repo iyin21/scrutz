@@ -3,11 +3,10 @@ import TopNav from "./TopNav/topNav"
 import { useState, ReactNode } from "react"
 import { Drawer } from "@mantine/core"
 import { AiOutlineClose } from "react-icons/ai"
-import Logo from "@assets/icons/logo.svg"
 import { Input } from "@components/index"
 
 interface Props {
-    //pageTitle: string
+    
     children: ReactNode
 }
 const Layout = ({ children }: Props) => {
