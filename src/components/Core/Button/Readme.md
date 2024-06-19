@@ -31,4 +31,4 @@ import Button from 'Button';
 |-----------|------------------------------------------|------------------------------|
 | href      | string                                   | Button label                 |
 | exact      | boolean                | Button type attribute       |
-| variant   | primary \| secondary \| outline \| ghost | Controls button appearance   |
+| variant   | primary \| blue \| border \| red | Controls button appearance   |

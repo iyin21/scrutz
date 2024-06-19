@@ -14,4 +14,4 @@ import Layout from './Layout'; // or import { Layout } from "@components"
 
 | Name     | Type      | Description  |
 | -------- | --------- | ------------ |
-| children | ReactNode | Layout label |
+| children | ReactNode | Content of the page |
