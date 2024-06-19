@@ -30,7 +30,7 @@ const useCreateCampaign = () => {
         onError: (err: any) => {
             showNotification({
                 title: "Error",
-                message: err.data?.message || err.message,
+                message: err.message|| "An error occurred",
                 color: "red",
             })
         },
@@ -65,7 +65,7 @@ const useUpdateCampaign = () => {
         onError: (err: any) => {
             showNotification({
                 title: "Error",
-                message: err.data?.message || err.message,
+                message: err.message|| "An error occurred",
                 color: "red",
             })
         },
@@ -88,7 +88,7 @@ const useDeleteCampaign = () => {
         onError: (err: any) => {
             showNotification({
                 title: "Error",
-                message: err.data?.message || err.message,
+                message:  err.message|| "An error occurred",
                 color: "red",
             })
         },

@@ -8,10 +8,9 @@ export interface buttonInterface
         | "black"
         | "red"
         | "border"
-        | "clear"
-        | "light-blue"
+        
         | "green"
-        | "white"
+        
     size?: "small" | "normal"
     type?: "button" | "submit" | "reset"
     children?: React.ReactNode

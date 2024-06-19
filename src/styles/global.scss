@@ -46,16 +46,7 @@
 .btn--red {
     @apply bg-red-100 py-2  text-white-100 text-md font-semibold;
 }
-// .btn--gray {
-//     @apply bg-[#FAFAFA] py-2 border border-black-100 text-black-100 text-md sm:text-2md;
-// }
-// .btn--white {
-//     @apply bg-[#E5E5E5] text-md sm:text-2md py-2 text-black-100;
-// }
 
-// .btn--clear {
-//     @apply bg-transparent border py-2 text-md sm:text-2md rounded-[35px];
-// }
 
 .btn--border {
     @apply bg-white-100 border border-primary-100 text-primary-100 py-2;
