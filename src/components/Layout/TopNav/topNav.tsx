@@ -11,7 +11,7 @@ const TopNav = ({
 }) => {
     return (
         <nav
-            className={`w-full px-2 sm:pl-6 md:pl-20  sm:pr-10 py-4 justify-between  flex items-center`}
+            className={`w-full px-2 sm:pl-6 lg:pl-20  sm:pr-10 py-4 justify-between  flex items-center`}
         >
             <HiMenuAlt2
                     size={28}

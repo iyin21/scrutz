@@ -5,15 +5,15 @@ import { useNavigate } from "react-router-dom"
 export interface CampaignDeletedModalProps {
     opened: boolean
     setOpened: React.Dispatch<React.SetStateAction<boolean>>
-    campaignName:string
+    campaignName: string
 }
 
 const CampaignDeletedModal = ({
     opened,
     setOpened,
-    campaignName
+    campaignName,
 }: CampaignDeletedModalProps) => {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     return (
         <Modal
             opened={opened}
@@ -45,7 +45,10 @@ const CampaignDeletedModal = ({
                 <Button
                     variant="primary"
                     className="font-syne mt-10 outline-none"
-                    onClick={() =>{setOpened(false); navigate("/campaign")}}
+                    onClick={() => {
+                        setOpened(false)
+                        navigate("/campaign")
+                    }}
                 >
                     Go Back to campaign list
                 </Button>

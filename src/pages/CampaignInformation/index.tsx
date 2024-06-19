@@ -24,11 +24,11 @@ const CampaignInformation = () => {
     const [openCampaignDeletedModal, setOpenCampaignDeletedModal] =
         useState(false)
 
-    useEffect(()=>{
-        if(isSuccess){
+    useEffect(() => {
+        if (isSuccess) {
             navigate("/campaign")
         }
-    },[isSuccess])    
+    }, [isSuccess])
     return (
         <Layout>
             <CampaignDeletedModal
@@ -54,7 +54,7 @@ const CampaignInformation = () => {
                     <CgSpinner className="animate-spin text-black-100 text-2lg " />
                 </div>
             ) : (
-                <div className="mr-20">
+                <div className="md:mr-20">
                     <div
                         className="flex cursor-pointer mb-4"
                         onClick={() => navigate(-1)}
@@ -70,7 +70,9 @@ const CampaignInformation = () => {
                             <p className="border-r border-gray-100 pr-2">
                                 Campaign Status
                             </p>
-                            <p className="text-green-100 pl-2">
+                            <p
+                                className={`${data?.campaignStatus === "Inactive" ? "text-red-100" : "text-green-100"} pl-2`}
+                            >
                                 {data?.campaignStatus}
                             </p>
                         </div>
@@ -233,7 +235,9 @@ const CampaignInformation = () => {
                                         variant="red"
                                         className="px-12 !text-white-100"
                                         type="button"
-                                        onClick={() => setOpenStopCampaignModal(true)}
+                                        onClick={() =>
+                                            setOpenStopCampaignModal(true)
+                                        }
                                     >
                                         Stop Campaign
                                     </Button>

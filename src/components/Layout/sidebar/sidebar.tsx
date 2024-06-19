@@ -30,7 +30,7 @@ const Sidebar = () => {
                             className={({ isActive }) =>
                                 isActive
                                     ? `${styles.active}  flex items-center justify-between  py-3 px-4 w-full hover:text-primary-100 mb-2   text-primary-100 bg-white-100  rounded font-semibold`
-                                    : `${styles.inactive} hover:text-green-100 flex items-center px-4 py-3 w-full 
+                                    : `${styles.inactive} hover:font-bold flex items-center px-4 py-3 w-full 
                                     text-primary-100 justify-between font-medium mb-2`
                             }
                         >

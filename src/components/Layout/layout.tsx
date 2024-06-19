@@ -43,7 +43,7 @@ const Layout = ({ children }: Props) => {
                             </div>
                             <Input
                                 placeholder="Search for anything..."
-                                className=" hidden sm:block sm:w-[200px] xl:w-[300px] p-4  text-[12px] text-grey-100 "
+                                className=" sm:hidden block sm:w-[200px] xl:w-[300px] p-4  text-[12px] text-grey-100 "
                             />
                             <hr className="text-gray-100 mt-5" />
                         </div>

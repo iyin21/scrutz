@@ -155,7 +155,7 @@ const CreateCampaign = () => {
                         <div className="flex gap-6 my-10">
                             <Button
                                 variant="border"
-                                className="px-16 "
+                                className="px-14 "
                                 type="button"
                                 onClick={() => navigate(-1)}
                             >
@@ -163,7 +163,7 @@ const CreateCampaign = () => {
                             </Button>
                             <Button
                                 variant="primary"
-                                className="px-10 "
+                                className="px-12 "
                                 type="submit"
                                 disabled={isPending}
                             >

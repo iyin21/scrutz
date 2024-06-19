@@ -90,26 +90,28 @@ const Campaign = () => {
                             }
                         />
                     </div>
-                    
-                    <CampaignTable
-                        data={paginatedData || []}
-                        handleOpenDeleteModal={(val) => {
-                            setItem(val)
-                            setOpenStopCampaignModal(true)
-                        }}
-                    />
-                    <div className="mt-2">
-                    <Pagination
-                        page={currentPage}
-                        total={Math.ceil((data?.length || 0) / pageSize)}
-                        onChange={(pageNumber) => setCurrentPage(pageNumber)}
-                        recordPerpage={pageSize}
-                        boundaries={1}
-                        totalRecords={data?.length || 0}
-                        count={paginatedData?.length || 0}
-                    />
+                    <div className="overflow-x-auto overflow-visible w-auto  sm:w-auto ">
+                        <CampaignTable
+                            data={paginatedData || []}
+                            handleOpenDeleteModal={(val) => {
+                                setItem(val)
+                                setOpenStopCampaignModal(true)
+                            }}
+                        />
                     </div>
-                    
+                    <div className="mt-2">
+                        <Pagination
+                            page={currentPage}
+                            total={Math.ceil((data?.length || 0) / pageSize)}
+                            onChange={(pageNumber) =>
+                                setCurrentPage(pageNumber)
+                            }
+                            recordPerpage={pageSize}
+                            boundaries={1}
+                            totalRecords={data?.length || 0}
+                            count={paginatedData?.length || 0}
+                        />
+                    </div>
                 </div>
             )}
         </Layout>

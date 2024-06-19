@@ -65,6 +65,7 @@ const CampaignTable = ({
                 fontSize: "14",
                 fontWeight: "semi-",
             }}
+            className=" min-w-[500px]"
             verticalSpacing="md"
             data-testid="table-data"
             role="grid"

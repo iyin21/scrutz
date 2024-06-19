@@ -134,6 +134,7 @@ function DatePickerInput(props: any) {
                                 "border-red-100"
                             }`}
                             placeholderText={placeholder}
+                            popperPlacement="bottom-end"
                         />
                     </div>
                     {meta.touched && meta.error && (
