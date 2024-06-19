@@ -13,7 +13,7 @@ const Overview = () => {
             <div className="">
                 <div className="sm:flex justify-between">
                     <div>
-                        <p className="font-generalSans font-bold md:text-xl text-2lg text-primary-100">
+                        <p className="font-workSans font-bold md:text-xl text-2lg text-primary-100">
                             Overview
                         </p>
                     </div>
